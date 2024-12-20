@@ -1,56 +1,51 @@
-# HR analytics
- 
-### Colunas relacionadas a Pessoas
-- **EmpID**: Identificação única do funcionário.
-- **Gender**: Gênero do funcionário (Masculino/Feminino).
-- **MaritalStatus**: Estado civil do funcionário.
-- **AgeGroup**: Faixa etária do funcionário.
-- **Over18**: Indica se o funcionário tem mais de 18 anos (geralmente "Sim").
-- **Age**: Idade do funcionário (em anos).
-- **DistanceFromHome**: Distância da casa do funcionário até o trabalho (em quilômetros).
+# HR Analytics: Explorando a Rotatividade de Funcionários
 
----
+Este projeto explora os fatores que contribuem para a **rotatividade de funcionários** em uma empresa, usando um conjunto de dados público de [Kaggle](https://www.kaggle.com/datasets/anshika2301/hr-analytics-dataset).
 
-### Colunas relacionadas ao Emprego
-- **EmployeeCount**: Contagem de funcionários (geralmente um valor constante).
-- **EmployeeNumber**: Número de identificação único do funcionário (similar a "EmpID").
-- **JobLevel**: Nível hierárquico do trabalho do funcionário.
-- **JobRole**: Função ou cargo do funcionário.
-- **YearsAtCompany**: Número de anos que o funcionário trabalhou na empresa atual.
-- **YearsInCurrentRole**: Número de anos no cargo atual.
-- **YearsWithCurrManager**: Número de anos trabalhando com o gerente atual.
-- **YearsSinceLastPromotion**: Número de anos desde a última promoção.
-- **BusinessTravel**: Frequência de viagens a trabalho.
-- **Department**: Departamento no qual o funcionário trabalha.
-- **StandardHours**: Horas padrão de trabalho (geralmente um valor constante).
-- **OverTime**: Indica se o funcionário faz horas extras (Sim/Não).
+## 🎯 **Objetivo do Projeto**
+Identificar padrões que levam à rotatividade de funcionários (attrition) e fornecer insights acionáveis para ajudar a reduzir a taxa de desligamento, melhorando a retenção de talentos.
 
----
+## 🛠️ **Metodologia**
+1. **Análise Exploratória de Dados (EDA):**
+   - Visualizações criadas com **Seaborn** e **Matplotlib**.
+   - Cálculo de correlações usando **Cramer's V** e **Pearson** para identificar as variáveis mais relevantes.
+   
+2. **Feature Engineering:**
+   - Criação de novas variáveis, como:
+     - `age_last_promotion`: Idade na última promoção.
+     - `hours_worked_per_week`: Cálculo das horas trabalhadas considerando horas extras.
 
-### Colunas relacionadas à Renda e Benefícios
-- **DailyRate**: Salário diário do funcionário.
-- **HourlyRate**: Taxa horária de pagamento do funcionário.
-- **MonthlyIncome**: Salário mensal do funcionário.
-- **MonthlyRate**: Taxa mensal associada ao funcionário.
-- **NumCompaniesWorked**: Número de empresas anteriores em que o funcionário trabalhou.
-- **PercentSalaryHike**: Percentual de aumento salarial recebido pelo funcionário.
-- **SalarySlab**: Faixa salarial do funcionário.
-- **StockOptionLevel**: Nível de opções de ações oferecidas ao funcionário.
-- **TotalWorkingYears**: Total de anos de experiência profissional do funcionário.
+3. **Modelagem:**
+   - Modelos utilizados:
+     - **Regressão Logística**
 
----
+## 📊 **Resultados Obtidos**
+### **Insights Importantes**
+1. Funcionários **solteiros** têm maior probabilidade de rotatividade (coeficiente de **0.91** na Regressão Logística).
+2. Funcionários **jovens** são mais propensos a sair (coeficiente de **0.82**).
+3. A **falta de promoções recentes** está fortemente associada ao desligamento (coeficiente de **-1.08**).
+4. O **tempo total de trabalho na empresa** tem impacto moderado na retenção.
+5. Horas extras aumentam a chance de desligamento (correlação de **0.25** com `Attrition`).
 
-### Colunas relacionadas à Educação e Treinamento
-- **Education**: Nível educacional do funcionário (1 a 5, onde 5 é o maior nível).
-- **EducationField**: Área de formação educacional do funcionário.
-- **TrainingTimesLastYear**: Número de treinamentos realizados no último ano.
+## ✅ **Perguntas Respondidas**
+1. **Quais departamentos têm maior rotatividade?**
+   - **Resposta:** Os departamentos de **Vendas** e **Pesquisa & Desenvolvimento** apresentam maior rotatividade.
 
----
+2. **Qual é a faixa etária mais propensa a sair?**
+   - **Resposta:** Funcionários entre **20 e 30 anos** são os mais propensos.
 
-### Colunas relacionadas à Satisfação e Desenvolvimento
-- **EnvironmentSatisfaction**: Satisfação do funcionário com o ambiente de trabalho (1 a 4, onde 4 é o mais satisfeito).
-- **JobInvolvement**: Nível de envolvimento do funcionário com o trabalho (1 a 4, onde 4 é o mais envolvido).
-- **RelationshipSatisfaction**: Nível de satisfação do funcionário com os relacionamentos no trabalho (1 a 4, onde 4 é o mais satisfeito).
-- **WorkLifeBalance**: Equilíbrio entre vida profissional e pessoal (1 a 4, onde 4 é o melhor equilíbrio).
-- **JobSatisfaction**: Nível de satisfação do funcionário com o trabalho (1 a 4, onde 4 é o mais satisfeito).
-- **PerformanceRating**: Avaliação de desempenho do funcionário (1 a 4, onde 4 é o melhor desempenho).
+3. **Como a carga de trabalho impacta a rotatividade?**
+   - **Resposta:** Funcionários com **muitas horas extras** apresentam maior risco de desligamento.
+
+4. **Por que pessoas com 1 ano de trabalho saem mais?**
+   - **Resposta:** Fatores como expectativas desalinhadas e falta de crescimento inicial podem contribuir.
+  
+## 🔍 **Aprendizados**
+1. **Perguntas Melhores:**
+   - Aprendi que formular perguntas claras e específicas direciona análises mais eficazes.
+
+2. **Visualizações Mais Impactantes:**
+   - Utilizar gráficos adequados para cada tipo de dado ajuda a comunicar os insights de forma mais clara.
+
+3. **Importância da Feature Engineering:**
+   - Criar variáveis relevantes aumentou significativamente a capacidade preditiva dos modelos.
